@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Create AWS EKS Cluster By Terraform | Enqueue Zero</title>
+    <meta name="description" content="Enqueue Zero is publishing code principles.">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.8179f028.css" as="style"><link rel="preload" href="/assets/js/app.a5c5a90d.js" as="script"><link rel="preload" href="/assets/js/70.35469e8c.js" as="script"><link rel="preload" href="/assets/js/6.6cd77d2f.js" as="script"><link rel="prefetch" href="/assets/js/10.018ae37c.js"><link rel="prefetch" href="/assets/js/100.22197086.js"><link rel="prefetch" href="/assets/js/101.54f8900f.js"><link rel="prefetch" href="/assets/js/102.14e6dfaa.js"><link rel="prefetch" href="/assets/js/103.bc5fe21b.js"><link rel="prefetch" href="/assets/js/104.7c80f93b.js"><link rel="prefetch" href="/assets/js/105.ca3d43a8.js"><link rel="prefetch" href="/assets/js/106.b5a1a7b8.js"><link rel="prefetch" href="/assets/js/107.88dc4bf2.js"><link rel="prefetch" href="/assets/js/108.d27316ac.js"><link rel="prefetch" href="/assets/js/109.c1c3f7d5.js"><link rel="prefetch" href="/assets/js/11.a4d6c639.js"><link rel="prefetch" href="/assets/js/110.5d20362d.js"><link rel="prefetch" href="/assets/js/111.19567cc3.js"><link rel="prefetch" href="/assets/js/112.7a1166db.js"><link rel="prefetch" href="/assets/js/113.a581c843.js"><link rel="prefetch" href="/assets/js/114.f04c0a5d.js"><link rel="prefetch" href="/assets/js/115.a2ef8992.js"><link rel="prefetch" href="/assets/js/116.f51b1cb8.js"><link rel="prefetch" href="/assets/js/117.6b7d8777.js"><link rel="prefetch" href="/assets/js/118.3fe35660.js"><link rel="prefetch" href="/assets/js/119.03a28530.js"><link rel="prefetch" href="/assets/js/12.a363c990.js"><link rel="prefetch" href="/assets/js/120.2e35a8ac.js"><link rel="prefetch" href="/assets/js/121.17e2a843.js"><link rel="prefetch" href="/assets/js/122.5f11d90e.js"><link rel="prefetch" href="/assets/js/123.3c2169bd.js"><link rel="prefetch" href="/assets/js/124.8f97de93.js"><link rel="prefetch" href="/assets/js/125.248f93fd.js"><link rel="prefetch" href="/assets/js/126.be7b49ce.js"><link rel="prefetch" href="/assets/js/127.ba8a13ff.js"><link rel="prefetch" href="/assets/js/128.4f66968d.js"><link rel="prefetch" href="/assets/js/129.1413bbb7.js"><link rel="prefetch" href="/assets/js/13.73c0d89b.js"><link rel="prefetch" href="/assets/js/130.ac5472dd.js"><link rel="prefetch" href="/assets/js/131.8d4dc161.js"><link rel="prefetch" href="/assets/js/132.68b7e465.js"><link rel="prefetch" href="/assets/js/133.79bec4c5.js"><link rel="prefetch" href="/assets/js/134.fa90460e.js"><link rel="prefetch" href="/assets/js/135.9306187f.js"><link rel="prefetch" href="/assets/js/136.b86c2432.js"><link rel="prefetch" href="/assets/js/137.64484ac0.js"><link rel="prefetch" href="/assets/js/138.423a2429.js"><link rel="prefetch" href="/assets/js/139.7d011a69.js"><link rel="prefetch" href="/assets/js/14.ee32880e.js"><link rel="prefetch" href="/assets/js/140.864d5c94.js"><link rel="prefetch" href="/assets/js/141.1fe7b9b2.js"><link rel="prefetch" href="/assets/js/142.23ec1948.js"><link rel="prefetch" href="/assets/js/143.981ad998.js"><link rel="prefetch" href="/assets/js/144.ec0dc002.js"><link rel="prefetch" href="/assets/js/145.aaa80a96.js"><link rel="prefetch" href="/assets/js/146.9f43c059.js"><link rel="prefetch" href="/assets/js/147.743294e7.js"><link rel="prefetch" href="/assets/js/148.1f131e94.js"><link rel="prefetch" href="/assets/js/149.8f4384a4.js"><link rel="prefetch" href="/assets/js/15.bbe22266.js"><link rel="prefetch" href="/assets/js/150.282d9c55.js"><link rel="prefetch" href="/assets/js/151.ac5e5099.js"><link rel="prefetch" href="/assets/js/152.d890f97d.js"><link rel="prefetch" href="/assets/js/153.60c4018e.js"><link rel="prefetch" href="/assets/js/154.d8044b29.js"><link rel="prefetch" href="/assets/js/16.daaa6b7e.js"><link rel="prefetch" href="/assets/js/17.5fa93d15.js"><link rel="prefetch" href="/assets/js/18.5a2a5a8e.js"><link rel="prefetch" href="/assets/js/19.d4cc6828.js"><link rel="prefetch" href="/assets/js/2.c107d922.js"><link rel="prefetch" href="/assets/js/20.f3aed24e.js"><link rel="prefetch" href="/assets/js/21.602e65dc.js"><link rel="prefetch" href="/assets/js/22.7f1ef34d.js"><link rel="prefetch" href="/assets/js/23.dd96e288.js"><link rel="prefetch" href="/assets/js/24.f0393f01.js"><link rel="prefetch" href="/assets/js/25.b3eaf42e.js"><link rel="prefetch" href="/assets/js/26.d11c3e2f.js"><link rel="prefetch" href="/assets/js/27.874eb632.js"><link rel="prefetch" href="/assets/js/28.9d8180e2.js"><link rel="prefetch" href="/assets/js/29.19e670ae.js"><link rel="prefetch" href="/assets/js/3.dcdecd51.js"><link rel="prefetch" href="/assets/js/30.05dd749c.js"><link rel="prefetch" href="/assets/js/31.ba54249e.js"><link rel="prefetch" href="/assets/js/32.a781042e.js"><link rel="prefetch" href="/assets/js/33.f10ca4c8.js"><link rel="prefetch" href="/assets/js/34.c46037b2.js"><link rel="prefetch" href="/assets/js/35.cd1d35ee.js"><link rel="prefetch" href="/assets/js/36.355a3162.js"><link rel="prefetch" href="/assets/js/37.1f45bb31.js"><link rel="prefetch" href="/assets/js/38.b143ec86.js"><link rel="prefetch" href="/assets/js/39.eeea86dc.js"><link rel="prefetch" href="/assets/js/4.cf9a5ee6.js"><link rel="prefetch" href="/assets/js/40.e3c4ecee.js"><link rel="prefetch" href="/assets/js/41.53454ef8.js"><link rel="prefetch" href="/assets/js/42.7bb7b1cc.js"><link rel="prefetch" href="/assets/js/43.178062e3.js"><link rel="prefetch" href="/assets/js/44.3962ed86.js"><link rel="prefetch" href="/assets/js/45.c3196a88.js"><link rel="prefetch" href="/assets/js/46.24affaf5.js"><link rel="prefetch" href="/assets/js/47.6ae747ba.js"><link rel="prefetch" href="/assets/js/48.16b7b683.js"><link rel="prefetch" href="/assets/js/49.aaf4cf5c.js"><link rel="prefetch" href="/assets/js/5.6758d475.js"><link rel="prefetch" href="/assets/js/50.dec004fc.js"><link rel="prefetch" href="/assets/js/51.13c60055.js"><link rel="prefetch" href="/assets/js/52.9df98683.js"><link rel="prefetch" href="/assets/js/53.5621439f.js"><link rel="prefetch" href="/assets/js/54.82938492.js"><link rel="prefetch" href="/assets/js/55.88368350.js"><link rel="prefetch" href="/assets/js/56.9454cb35.js"><link rel="prefetch" href="/assets/js/57.c22a39d6.js"><link rel="prefetch" href="/assets/js/58.dbf5d826.js"><link rel="prefetch" href="/assets/js/59.0eafc181.js"><link rel="prefetch" href="/assets/js/60.647bf7cb.js"><link rel="prefetch" href="/assets/js/61.4f87d8af.js"><link rel="prefetch" href="/assets/js/62.8836d886.js"><link rel="prefetch" href="/assets/js/63.27177f22.js"><link rel="prefetch" href="/assets/js/64.0a5e943f.js"><link rel="prefetch" href="/assets/js/65.7ce3ee50.js"><link rel="prefetch" href="/assets/js/66.85e8a286.js"><link rel="prefetch" href="/assets/js/67.da6aec92.js"><link rel="prefetch" href="/assets/js/68.83e971cb.js"><link rel="prefetch" href="/assets/js/69.0edbe74d.js"><link rel="prefetch" href="/assets/js/7.6bcf3745.js"><link rel="prefetch" href="/assets/js/71.54e87c3a.js"><link rel="prefetch" href="/assets/js/72.0975e4c9.js"><link rel="prefetch" href="/assets/js/73.2ec68323.js"><link rel="prefetch" href="/assets/js/74.13bf7e04.js"><link rel="prefetch" href="/assets/js/75.3be14426.js"><link rel="prefetch" href="/assets/js/76.bd32ba3e.js"><link rel="prefetch" href="/assets/js/77.b52bb0c4.js"><link rel="prefetch" href="/assets/js/78.3a77b2d8.js"><link rel="prefetch" href="/assets/js/79.c2747e2d.js"><link rel="prefetch" href="/assets/js/8.f71652a1.js"><link rel="prefetch" href="/assets/js/80.4a107658.js"><link rel="prefetch" href="/assets/js/81.75308548.js"><link rel="prefetch" href="/assets/js/82.9383893b.js"><link rel="prefetch" href="/assets/js/83.3b11109d.js"><link rel="prefetch" href="/assets/js/84.6a005d10.js"><link rel="prefetch" href="/assets/js/85.6cea521f.js"><link rel="prefetch" href="/assets/js/86.fa853074.js"><link rel="prefetch" href="/assets/js/87.5d110306.js"><link rel="prefetch" href="/assets/js/88.34eb170e.js"><link rel="prefetch" href="/assets/js/89.65b23b0d.js"><link rel="prefetch" href="/assets/js/9.207749d9.js"><link rel="prefetch" href="/assets/js/90.9793b902.js"><link rel="prefetch" href="/assets/js/91.aab54e09.js"><link rel="prefetch" href="/assets/js/92.db4b3190.js"><link rel="prefetch" href="/assets/js/93.12604934.js"><link rel="prefetch" href="/assets/js/94.49b2a19d.js"><link rel="prefetch" href="/assets/js/95.8f5b4b26.js"><link rel="prefetch" href="/assets/js/96.b9653b96.js"><link rel="prefetch" href="/assets/js/97.436b94b7.js"><link rel="prefetch" href="/assets/js/98.aa36e199.js"><link rel="prefetch" href="/assets/js/99.5ea4f990.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8179f028.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Enqueue Zero</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/soasme/enqueuezero" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"> <a href="https://github.com/soasme/enqueuezero" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>Create AWS EKS Cluster By Terraform</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/hands-on-cloud-native/aws-eks.html#networking-concepts" class="sidebar-link">Networking Concepts</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/hands-on-cloud-native/aws-eks.html#vpc" class="sidebar-link">VPC</a></li><li class="sidebar-sub-header"><a href="/hands-on-cloud-native/aws-eks.html#availability-zones" class="sidebar-link">Availability Zones</a></li><li class="sidebar-sub-header"><a href="/hands-on-cloud-native/aws-eks.html#subnet" class="sidebar-link">Subnet</a></li><li class="sidebar-sub-header"><a href="/hands-on-cloud-native/aws-eks.html#internet-gateway" class="sidebar-link">Internet Gateway</a></li><li class="sidebar-sub-header"><a href="/hands-on-cloud-native/aws-eks.html#nat-gateway" class="sidebar-link">NAT Gateway</a></li></ul></li><li><a href="/hands-on-cloud-native/aws-eks.html#computation-concepts" class="sidebar-link">Computation Concepts</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/hands-on-cloud-native/aws-eks.html#elb" class="sidebar-link">ELB</a></li><li class="sidebar-sub-header"><a href="/hands-on-cloud-native/aws-eks.html#ec2" class="sidebar-link">EC2</a></li><li class="sidebar-sub-header"><a href="/hands-on-cloud-native/aws-eks.html#auto-scaling-group" class="sidebar-link">Auto Scaling Group</a></li></ul></li><li><a href="/hands-on-cloud-native/aws-eks.html#security-concepts" class="sidebar-link">Security Concepts</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/hands-on-cloud-native/aws-eks.html#security-groups" class="sidebar-link">Security Groups</a></li><li class="sidebar-sub-header"><a href="/hands-on-cloud-native/aws-eks.html#iam-users-iam-roles" class="sidebar-link">IAM Users / IAM Roles</a></li></ul></li><li><a href="/hands-on-cloud-native/aws-eks.html#kubernetes-concepts" class="sidebar-link">Kubernetes Concepts</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/hands-on-cloud-native/aws-eks.html#eks-cluster" class="sidebar-link">EKS Cluster</a></li><li class="sidebar-sub-header"><a href="/hands-on-cloud-native/aws-eks.html#worker-nodes" class="sidebar-link">Worker Nodes</a></li><li class="sidebar-sub-header"><a href="/hands-on-cloud-native/aws-eks.html#create-kubernetes-cluster-on-aws" class="sidebar-link">Create Kubernetes Cluster on AWS</a></li></ul></li><li><a href="/hands-on-cloud-native/aws-eks.html#preparation" class="sidebar-link">Preparation</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/hands-on-cloud-native/aws-eks.html#setup-network" class="sidebar-link">Setup Network</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/hands-on-cloud-native/aws-eks.html#setup-security-policies-for-eks-master" class="sidebar-link">Setup Security Policies for EKS Master</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/hands-on-cloud-native/aws-eks.html#setup-eks-master" class="sidebar-link">Setup EKS Master</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/hands-on-cloud-native/aws-eks.html#setup-security-policies-for-worker-nodes" class="sidebar-link">Setup Security Policies for Worker Nodes</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/hands-on-cloud-native/aws-eks.html#setup-worker-nodes-fleet" class="sidebar-link">Setup Worker Nodes Fleet</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/hands-on-cloud-native/aws-eks.html#references" class="sidebar-link">References</a><ul class="sidebar-sub-headers"></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="create-amazon-eks-cluster-by-terraform"><a href="#create-amazon-eks-cluster-by-terraform" class="header-anchor">#</a> Create Amazon EKS Cluster By Terraform</h1> <p>In this chapter, we'll build a Kubernetes cluster that is ready for deploying our applications.</p> <h2 id="networking-concepts"><a href="#networking-concepts" class="header-anchor">#</a> Networking Concepts</h2> <p>Below diagram provides a simplified pictures on networking concepts</p> <div class="mermaid">
+graph LR
+    subgraph VPC
+        subgraph private_subnet
+            subgraph AZ1
+                ec2_1--&gt;nat_gateway1
+                ec2_2--&gt;nat_gateway1
+            end
+            subgraph AZ2
+                ec2_3--&gt;nat_gateway2
+                ec2_4--&gt;nat_gateway2
+            end
+        end
+        subgraph public_subnet
+            load_balancer
+            internet_gateway
+        end
+    end
+</div> <h3 id="vpc"><a href="#vpc" class="header-anchor">#</a> VPC</h3> <p>Amazon Virtual Private Cloud (Amazon VPC) is a virtual network for launching AWS resources dedicated to an AWS account.
+Think of the VPC as a depot for storing all your cloud resources launched by AWS.</p> <h3 id="availability-zones"><a href="#availability-zones" class="header-anchor">#</a> Availability Zones</h3> <p>AZ, or Availability zones are distinct locations that are engineered to be isolated from failures in other Availability Zones.</p> <p>Think of the availability zones as sections in the depot.</p> <h3 id="subnet"><a href="#subnet" class="header-anchor">#</a> Subnet</h3> <p>A subnetwork or subnet is a logical subdivision of an IP Network.</p> <p>In general, we create two subnets, public subnet and private subnet.
+The load balancer, and Internet gateway are deployed to the public subnet.
+The worker nodes, and NAT gateway are deployed to the private subnet.</p> <h3 id="internet-gateway"><a href="#internet-gateway" class="header-anchor">#</a> Internet Gateway</h3> <p>An Internet gateway is the node where data sending in from the Internet and sending out to the Internet.
+It connects the Internet and the subnets in the VPC.</p> <h3 id="nat-gateway"><a href="#nat-gateway" class="header-anchor">#</a> NAT Gateway</h3> <p>A NAT Gateway, or network address translation network is the node in a private subnet that connects other AWS resources or Internet, but prevent the Internet from sending data in.</p> <h2 id="computation-concepts"><a href="#computation-concepts" class="header-anchor">#</a> Computation Concepts</h2> <p>Below diagram provides a simplified pictures on computation concepts.</p> <div class="mermaid">
+graph TB
+    traffic --&gt; elb
+    elb --&gt; ec2_1
+    elb --&gt; ec2_2
+    more_traffic -.-&gt; elb
+    elb -.-&gt; ec2_3
+    auto_scaling_group -- create --&gt; ec2_3
+</div> <ul><li>ELB serves user requests and load balance to backend EC2 instances.</li> <li>Auto scaling group create or terminate EC2 instances based on their loads.</li> <li>EC2 instances are the actual virtual server node.</li></ul> <h3 id="elb"><a href="#elb" class="header-anchor">#</a> ELB</h3> <p>Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances.</p> <h3 id="ec2"><a href="#ec2" class="header-anchor">#</a> EC2</h3> <p>Amazon Elastic Compute Cloud (EC2) is the Amazon cloud-computing platform that provide virtual servers to run computer applications.
+Each virtual server is so-called an instance.
+An user can boot an Amazon Machine Image (AMI) to configure a virtual machine, create, launch, and terminate the instance as needed.</p> <h3 id="auto-scaling-group"><a href="#auto-scaling-group" class="header-anchor">#</a> Auto Scaling Group</h3> <p>An auto scaling group contains a collection of Amazon EC2 instances that share similar characteristics and are treated as a logical grouping for the purposes of instance scaling and management.</p> <p>When the traffic is high, the auto scaling group can scale up, meaning creating more EC2 instances to serve the traffic, and vice versa for when the traffic is low.</p> <h2 id="security-concepts"><a href="#security-concepts" class="header-anchor">#</a> Security Concepts</h2> <h3 id="security-groups"><a href="#security-groups" class="header-anchor">#</a> Security Groups</h3> <p>A security group is a virtual firewall that controls the traffic for one or more instances.
+You can configure what IP packets can be send in and send out.
+The rules are specified in a simple form of source ip, target ip, target port.</p> <h3 id="iam-users-iam-roles"><a href="#iam-users-iam-roles" class="header-anchor">#</a> IAM Users / IAM Roles</h3> <p>The AWS IAM, or AWS Identity and Access Management is for securely control individual and group access to your AWS resources.
+It provides the authentication for managing AWS resources.</p> <h2 id="kubernetes-concepts"><a href="#kubernetes-concepts" class="header-anchor">#</a> Kubernetes Concepts</h2> <p>Below diagram shows the relationship of Kubernetes concepts.</p> <div class="mermaid">
+graph TB
+    worker_node_1 -- connect --&gt; eks_cluster
+    worker_node_2 -- connect --&gt; eks_cluster
+    worker_node_3 -- connect --&gt; eks_cluster
+</div> <h3 id="eks-cluster"><a href="#eks-cluster" class="header-anchor">#</a> EKS Cluster</h3> <p>Amazon EKS, or Amazon Elastic Container Service for Kubernetes is a cloud solution for running Kubernetes on AWS.
+It provides Kubernetes management infrastructure across multiple AWS availability zones.
+By costing very few management efforts, you'll have a full-fledged Kubernetes cluster running in the cloud without headache.</p> <h3 id="worker-nodes"><a href="#worker-nodes" class="header-anchor">#</a> Worker Nodes</h3> <p>Amazon EKS only provides the Kubernetes management infrastructure, not the actual computing nodes.
+Worker nodes are EC2 instances that connects to the master of EKS Cluster.
+These worker nodes will be where the application resides in.</p> <h3 id="create-kubernetes-cluster-on-aws"><a href="#create-kubernetes-cluster-on-aws" class="header-anchor">#</a> Create Kubernetes Cluster on AWS</h3> <h2 id="preparation"><a href="#preparation" class="header-anchor">#</a> Preparation</h2> <p>Install <code>terraform</code>. For macOS users, you can install terraform via Homebrew.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ brew <span class="token function">install</span> terraform
+</code></pre></div><p>Create IAM user or group to obtain credentials. // TODO</p> <h2 id="setup-network"><a href="#setup-network" class="header-anchor">#</a> Setup Network</h2> <p>Before moving forward, let's give the cluster a name. For reusable, we define a variable. Anytime we want to get the variable in the rest of the chapter, we can use <code>${var.cluster-name}</code> in the terraform script.</p> <div class="language-tf extra-class"><pre class="language-text"><code>variable &quot;cluster-name&quot; {
+  type = &quot;string&quot;
+  default = &quot;tomato-coffee&quot;
+}
+</code></pre></div><p>We want all our AWS resources within the scope of VPC. In particular, we need to add a tag &quot;kubernetes.io/cluster/${var.cluster-name}=shared&quot; for the VPC. Only in this way can the EKS cluster joining the VPC. The cidr_block <code>10.0.0.0/16</code> defines the total number we can allocate IP addresses and IP routing.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_vpc&quot; &quot;vpc&quot; {
+  cidr_block = &quot;10.0.0.0/16&quot;
+
+  tags = &quot;${
+    map(
+     &quot;Name&quot;, &quot;${var.cluster-name}-vpc&quot;,
+     &quot;kubernetes.io/cluster/${var.cluster-name}&quot;, &quot;shared&quot;,
+    )
+  }&quot;
+}
+</code></pre></div><p>Before creating subnets, the first thing we need to do is to get the availability zones, since both the private subnet and public subnet needs to deploy their resources to at least two availability zones for high availability. We don't need to create AZ but simply fetch a list of AZs as they are AWS concerns. Therefore, we simply use terraform data source for this kind of purpose. Eventually, it'll be an array like <code>[&quot;us-west-2a&quot;, &quot;us-west-2b&quot;, &quot;us-west-2c&quot;]</code>.</p> <div class="language-tf extra-class"><pre class="language-text"><code>data &quot;aws_availability_zones&quot; &quot;azs&quot; {}
+</code></pre></div><p>Now, we're good to go for the subnets.</p> <p>We set the <code>count</code> to 2 for creating the subnet twice, one in the first AZ, and the other in the second AZ. The maximum value of <code>count</code> depends on how many availability zones provided in designated region. We get the availability zone name by <code>${data.aws_availability_zones.azs.names[count.index]}</code>. It will be strings like &quot;us-west-2a&quot;. Then we get the vpc id by<code>${aws_vpc.vpc.id}</code>. The terraform syntax of <code>${terraform_resource.resource_name.resource_attribute}</code> provides you the reference to a dynamically fetched cloud resource value. We also define the cidr block to <code>10.0.${count.index}.0/24</code> similarly to what we have done to the vpc except it's much smaller. The tag <code>kubernetes.io/cluster/${var.cluster-name}=shared</code> is also required.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_subnet&quot; &quot;private-subnet&quot; {
+  count = 2
+
+  vpc_id            = &quot;${aws_vpc.vpc.id}&quot;
+  cidr_block        = &quot;10.0.${count.index}.0/24&quot;
+  availability_zone = &quot;${data.aws_availability_zones.azs.names[count.index]}&quot;
+
+  tags = &quot;${
+    map(
+     &quot;Name&quot;, &quot;${var.cluster-name}-private-subnet-${data.aws_availability_zones.azs.names[count.index]}&quot;,
+     &quot;kubernetes.io/cluster/${var.cluster-name}&quot;, &quot;shared&quot;,
+    )
+  }&quot;
+}
+</code></pre></div><p>The public subnet is very similar to the private. We only change the <code>cidr_block</code> to another namespace. In public subnet, it's <code>10.0.X.0/24</code>, while in subnet, it's <code>10.1.X.0/24</code>. The two CIDR blocks do not necessarily need to be the exact two given example. It depends on your network topology.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_subnet&quot; &quot;public-subnet&quot; {
+  count = 2
+
+  vpc_id            = &quot;${aws_vpc.vpc.id}&quot;
+  cidr_block        = &quot;10.1.${count.index}.0/24&quot;
+  availability_zone = &quot;${data.aws_availability_zones.azs.names[count.index]}&quot;
+
+  tags = &quot;${
+    map(
+     &quot;Name&quot;, &quot;${var.cluster-name}-public-subnet-${data.aws_availability_zones.azs.names[count.index]}&quot;,
+     &quot;kubernetes.io/cluster/${var.cluster-name}&quot;, &quot;shared&quot;,
+    )
+  }&quot;
+}
+
+</code></pre></div><p>Next, we're going to create an Internet gateway for the public subnet. The internet gateway has to be within the created VPC.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_internet_gateway&quot; &quot;igtw&quot; {
+  vpc_id = &quot;${aws_vpc.vpc.id}&quot;
+
+  tags {
+    Name = &quot;${var.cluster-name}-internet-gateway&quot;
+  }
+}
+</code></pre></div><p>We still need to create a route table for passing traffic through the internet gateway. The only route we add to the table is to allow all traffic (<code>0.0.0.0/0</code>) going through the created internet gateway.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_route_table&quot; &quot;public-subnet-route-table&quot; {
+  vpc_id = &quot;${aws_vpc.vpc.id}&quot;
+
+  route {
+    cidr_block = &quot;0.0.0.0/0&quot;
+    gateway_id = &quot;${aws_internet_gateway.igtw.id}&quot;
+  }
+}
+</code></pre></div><p>The last thing for the route table is to attach it to the public subnet. In this way, the subnet will have a route table that allow traffic going through the internet gateway with blocking. Note that we need to associate the route table to the public subnet across all of the availability zones.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_route_table_association&quot; &quot;public-subnet-route-table-assoc&quot; {
+  count = 2
+
+  subnet_id      = &quot;${aws_subnet.public-subnet.*.id[count.index]}&quot;
+  route_table_id = &quot;${aws_route_table.public-subnet-route-table.id}&quot;
+}
+</code></pre></div><h2 id="setup-security-policies-for-eks-master"><a href="#setup-security-policies-for-eks-master" class="header-anchor">#</a> Setup Security Policies for EKS Master</h2> <p>To allow EKS service managing or retrieving data from other AWS resources,  we need to put some policies on the IAM role. The IAM role will be used by the EKS Master.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_iam_role&quot; &quot;cluster&quot; {
+  name = &quot;${var.cluster-name}-cluster&quot;
+
+  assume_role_policy = &lt;&lt;POLICY
+{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: [
+    {
+      &quot;Effect&quot;: &quot;Allow&quot;,
+      &quot;Principal&quot;: {
+        &quot;Service&quot;: &quot;eks.amazonaws.com&quot;
+      },
+      &quot;Action&quot;: &quot;sts:AssumeRole&quot;
+    }
+  ]
+}
+POLICY
+}
+
+resource &quot;aws_iam_role_policy_attachment&quot; &quot;AmazonEKSClusterPolicy&quot; {
+  policy_arn = &quot;arn:aws:iam::aws:policy/AmazonEKSClusterPolicy&quot;
+  role       = &quot;${aws_iam_role.cluster.name}&quot;
+}
+
+resource &quot;aws_iam_role_policy_attachment&quot; &quot;AmazonEKSServicePolicy&quot; {
+  policy_arn = &quot;arn:aws:iam::aws:policy/AmazonEKSServicePolicy&quot;
+  role       = &quot;${aws_iam_role.cluster.name}&quot;
+}
+</code></pre></div><p>Other than IAM role policies, we also need to create a security group for restricting network access.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_security_group&quot; &quot;cluster&quot; {
+  description = &quot;Cluster communication with worker nodes&quot;
+  vpc_id      = &quot;${aws_vpc.vpc.id}&quot;
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = &quot;-1&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+  }
+
+  tags {
+    Name = &quot;${var.cluster-name}-cluster&quot;
+  }
+}
+</code></pre></div><h2 id="setup-eks-master"><a href="#setup-eks-master" class="header-anchor">#</a> Setup EKS Master</h2> <p>With above AWS resources allocated, now we're ready to bring up an EKS Master. The role for performing cluster admin work is <code>aws_iam_role.cluster</code> we created above. The security group for the cluster is <code>aws_security_group.cluster</code>. We let the subnets for the cluster to be both the public subnet and private subnet.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_eks_cluster&quot; &quot;cluster&quot; {
+  name = &quot;${var.cluster-name}&quot;
+  role_arn = &quot;${aws_iam_role.cluster.arn}&quot;
+
+  vpc_config {
+    security_group_ids = [&quot;${aws_security_group.cluster.id}&quot;]
+    subnet_ids = [
+      &quot;${aws_subnet.public-subnet.*.id}&quot;,
+      &quot;${aws_subnet.private-subnet.*.id}&quot;,
+    ]
+  }
+
+  depends_on = [
+    &quot;aws_iam_role_policy_attachment.demo-cluster-AmazonEKSClusterPolicy&quot;,
+    &quot;aws_iam_role_policy_attachment.demo-cluster-AmazonEKSServicePolicy&quot;,
+  ]
+}
+</code></pre></div><h2 id="setup-security-policies-for-worker-nodes"><a href="#setup-security-policies-for-worker-nodes" class="header-anchor">#</a> Setup Security Policies for Worker Nodes</h2> <p>The cluster is setup for now although it can schedule any work, as no node is available. Next, we're going to launch EC2 as the worker nodes for the EKS cluster.</p> <p>We start from defining IAM role and policies for worker nodes.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_iam_role&quot; &quot;worker-node&quot; {
+  name = &quot;${var-cluster-name}-worker-node&quot;
+
+  assume_role_policy = &lt;&lt;POLICY
+{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: [
+    {
+      &quot;Effect&quot;: &quot;Allow&quot;,
+      &quot;Principal&quot;: {
+        &quot;Service&quot;: &quot;ec2.amazonaws.com&quot;
+      },
+      &quot;Action&quot;: &quot;sts:AssumeRole&quot;
+    }
+  ]
+}
+POLICY
+}
+
+resource &quot;aws_iam_role_policy_attachment&quot; &quot;worker-node-AmazonEKSWorkerNodePolicy&quot; {
+  policy_arn = &quot;arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy&quot;
+  role       = &quot;${aws_iam_role.worker-node.name}&quot;
+}
+
+resource &quot;aws_iam_role_policy_attachment&quot; &quot;worker-node-AmazonEKS_CNI_Policy&quot; {
+  policy_arn = &quot;arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy&quot;
+  role       = &quot;${aws_iam_role.worker-node.name}&quot;
+}
+
+resource &quot;aws_iam_role_policy_attachment&quot; &quot;worker-node-AmazonEC2ContainerRegistryReadOnly&quot; {
+  policy_arn = &quot;arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly&quot;
+  role       = &quot;${aws_iam_role.worker-node.name}&quot;
+}
+
+</code></pre></div><p>Next, we need to create the IAM instance profile, which must be used to tag the IAM role to the EC2 instance.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_iam_instance_profile&quot; &quot;worker-node&quot; {
+  name = &quot;${var.cluster-name}-worker-node&quot;
+  role = &quot;${aws_iam_role.worker-node.name}&quot;
+}
+</code></pre></div><p>Then, we create the security group for the worker node.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_security_group&quot; &quot;worker-node&quot; {
+  name        = &quot;${var.cluster-name}-worker-node&quot;
+  description = &quot;Security group for all nodes in the cluster&quot;
+  vpc_id      = &quot;${aws_vpc.vpc.id}&quot;
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = &quot;-1&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+  }
+
+  tags = &quot;${
+    map(
+     &quot;Name&quot;, &quot;${var.cluster-name}-worker-node&quot;,
+     &quot;kubernetes.io/cluster/${var.cluster-name}&quot;, &quot;owned&quot;,
+    )
+  }&quot;
+}
+</code></pre></div><p>The first rule we set to the worker node security group is to allow worker node communicating with each other. In this case, both the source and the target should point to worker node security group itself.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_security_group_rule&quot; &quot;worker-node-ingress-self&quot; {
+  description              = &quot;Allow node to communicate with each other&quot;
+  from_port                = 0
+  protocol                 = &quot;-1&quot;
+  security_group_id        = &quot;${aws_security_group.worker-node.id}&quot;
+  source_security_group_id = &quot;${aws_security_group.worker-node.id}&quot;
+  to_port                  = 65535
+  type                     = &quot;ingress&quot;
+}
+</code></pre></div><p>The second rule we set to the worker node security group is to allow kubelets and kube-proxy communicating with the Kubernetes control plane. In this case, the source is the worker node security group, and the target is the cluster security group.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_security_group_rule&quot; &quot;worker-node-ingress-cluster&quot; {
+  description              = &quot;Allow worker Kubelets and pods to receive communication from the cluster control plane&quot;
+  from_port                = 1025
+  protocol                 = &quot;tcp&quot;
+  security_group_id        = &quot;${aws_security_group.worker-node.id}&quot;
+  source_security_group_id = &quot;${aws_security_group.cluster.id}&quot;
+  to_port                  = 65535
+  type                     = &quot;ingress&quot;
+}
+</code></pre></div><p>The third rule we set to the worker node security group is to allow worker node communicating with the EKS master cluster.</p> <div class="language-tf extra-class"><pre class="language-text"><code>resource &quot;aws_security_group_rule&quot; &quot;cluster-ingress-node-https&quot; {
+  description              = &quot;Allow pods to communicate with the cluster API Server&quot;
+  from_port                = 443
+  protocol                 = &quot;tcp&quot;
+  security_group_id        = &quot;${aws_security_group.cluster.id}&quot;
+  source_security_group_id = &quot;${aws_security_group.worker-node.id}&quot;
+  to_port                  = 443
+  type                     = &quot;ingress&quot;
+}
+</code></pre></div><h2 id="setup-worker-nodes-fleet"><a href="#setup-worker-nodes-fleet" class="header-anchor">#</a> Setup Worker Nodes Fleet</h2> <p>With the security resources allocated, we're ready to bring EC2 instances up and join the EKS cluster.</p> <p>First, let's select a latest Amazon Machine Image (AMI) as the image for the EC2 instances. It's good to lock the version to a stable one.</p> <div class="language-tf extra-class"><pre class="language-text"><code>locals {
+  image = &quot;amazon-eks-node-v21&quot;
+  owner = &quot;602401143452&quot; # Amazon EKS AMI Account ID
+}
+
+data &quot;aws_ami&quot; &quot;eks-worker&quot; {
+  filter {
+    name   = &quot;name&quot;
+    values = [&quot;${local.image}&quot;]
+  }
+
+  most_recent = true
+  owners      = [&quot;${loca.owner}&quot;]
+}
+</code></pre></div><p>Next, we create a launch configuration for the EC2 instance.</p> <h2 id="references"><a href="#references" class="header-anchor">#</a> References</h2> <p>Getting Started with Amazon EKS, <a href="https://aws.amazon.com/eks/getting-started/" target="_blank" rel="noopener noreferrer">https://aws.amazon.com/eks/getting-started/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>AWS EKS Introduction, <a href="https://learn.hashicorp.com/terraform/aws/eks-intro" target="_blank" rel="noopener noreferrer">https://learn.hashicorp.com/terraform/aws/eks-intro<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>What Is Amazon VPC, <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html" target="_blank" rel="noopener noreferrer">https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>VPCs and Subnets, <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html" target="_blank" rel="noopener noreferrer">https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>Subnetwork, <a href="https://en.wikipedia.org/wiki/Subnetwork" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Subnetwork<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>Auto Scaling Groups <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html" target="_blank" rel="noopener noreferrer">https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>AWS IAM Basic, <a href="https://aws.amazon.com/iam/faqs/" target="_blank" rel="noopener noreferrer">https://aws.amazon.com/iam/faqs/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>Amazon EC2 Security Groups for Linux Instances, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html" target="_blank" rel="noopener noreferrer">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>Creating a Custom Cluster from Scratch, <a href="https://kubernetes.io/docs/setup/scratch/" target="_blank" rel="noopener noreferrer">https://kubernetes.io/docs/setup/scratch/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>eksctl, a CLI for Amazon EKS, <a href="https://eksctl.io/" target="_blank" rel="noopener noreferrer">https://eksctl.io/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="/" class="router-link-active">Please donate this project. It takes time and efforts writing these articles.</a></p></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/soasme/enqueuezero/edit/master/hands-on-cloud-native/aws-eks.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/assets/js/app.a5c5a90d.js" defer></script><script src="/assets/js/70.35469e8c.js" defer></script><script src="/assets/js/6.6cd77d2f.js" defer></script>
+  </body>
+</html>

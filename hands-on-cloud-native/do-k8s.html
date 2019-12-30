@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Create a Kubernetes Cluster on DigitalOcean | Enqueue Zero</title>
+    <meta name="description" content="Enqueue Zero is publishing code principles.">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.8179f028.css" as="style"><link rel="preload" href="/assets/js/app.a5c5a90d.js" as="script"><link rel="preload" href="/assets/js/74.13bf7e04.js" as="script"><link rel="prefetch" href="/assets/js/10.018ae37c.js"><link rel="prefetch" href="/assets/js/100.22197086.js"><link rel="prefetch" href="/assets/js/101.54f8900f.js"><link rel="prefetch" href="/assets/js/102.14e6dfaa.js"><link rel="prefetch" href="/assets/js/103.bc5fe21b.js"><link rel="prefetch" href="/assets/js/104.7c80f93b.js"><link rel="prefetch" href="/assets/js/105.ca3d43a8.js"><link rel="prefetch" href="/assets/js/106.b5a1a7b8.js"><link rel="prefetch" href="/assets/js/107.88dc4bf2.js"><link rel="prefetch" href="/assets/js/108.d27316ac.js"><link rel="prefetch" href="/assets/js/109.c1c3f7d5.js"><link rel="prefetch" href="/assets/js/11.a4d6c639.js"><link rel="prefetch" href="/assets/js/110.5d20362d.js"><link rel="prefetch" href="/assets/js/111.19567cc3.js"><link rel="prefetch" href="/assets/js/112.7a1166db.js"><link rel="prefetch" href="/assets/js/113.a581c843.js"><link rel="prefetch" href="/assets/js/114.f04c0a5d.js"><link rel="prefetch" href="/assets/js/115.a2ef8992.js"><link rel="prefetch" href="/assets/js/116.f51b1cb8.js"><link rel="prefetch" href="/assets/js/117.6b7d8777.js"><link rel="prefetch" href="/assets/js/118.3fe35660.js"><link rel="prefetch" href="/assets/js/119.03a28530.js"><link rel="prefetch" href="/assets/js/12.a363c990.js"><link rel="prefetch" href="/assets/js/120.2e35a8ac.js"><link rel="prefetch" href="/assets/js/121.17e2a843.js"><link rel="prefetch" href="/assets/js/122.5f11d90e.js"><link rel="prefetch" href="/assets/js/123.3c2169bd.js"><link rel="prefetch" href="/assets/js/124.8f97de93.js"><link rel="prefetch" href="/assets/js/125.248f93fd.js"><link rel="prefetch" href="/assets/js/126.be7b49ce.js"><link rel="prefetch" href="/assets/js/127.ba8a13ff.js"><link rel="prefetch" href="/assets/js/128.4f66968d.js"><link rel="prefetch" href="/assets/js/129.1413bbb7.js"><link rel="prefetch" href="/assets/js/13.73c0d89b.js"><link rel="prefetch" href="/assets/js/130.ac5472dd.js"><link rel="prefetch" href="/assets/js/131.8d4dc161.js"><link rel="prefetch" href="/assets/js/132.68b7e465.js"><link rel="prefetch" href="/assets/js/133.79bec4c5.js"><link rel="prefetch" href="/assets/js/134.fa90460e.js"><link rel="prefetch" href="/assets/js/135.9306187f.js"><link rel="prefetch" href="/assets/js/136.b86c2432.js"><link rel="prefetch" href="/assets/js/137.64484ac0.js"><link rel="prefetch" href="/assets/js/138.423a2429.js"><link rel="prefetch" href="/assets/js/139.7d011a69.js"><link rel="prefetch" href="/assets/js/14.ee32880e.js"><link rel="prefetch" href="/assets/js/140.864d5c94.js"><link rel="prefetch" href="/assets/js/141.1fe7b9b2.js"><link rel="prefetch" href="/assets/js/142.23ec1948.js"><link rel="prefetch" href="/assets/js/143.981ad998.js"><link rel="prefetch" href="/assets/js/144.ec0dc002.js"><link rel="prefetch" href="/assets/js/145.aaa80a96.js"><link rel="prefetch" href="/assets/js/146.9f43c059.js"><link rel="prefetch" href="/assets/js/147.743294e7.js"><link rel="prefetch" href="/assets/js/148.1f131e94.js"><link rel="prefetch" href="/assets/js/149.8f4384a4.js"><link rel="prefetch" href="/assets/js/15.bbe22266.js"><link rel="prefetch" href="/assets/js/150.282d9c55.js"><link rel="prefetch" href="/assets/js/151.ac5e5099.js"><link rel="prefetch" href="/assets/js/152.d890f97d.js"><link rel="prefetch" href="/assets/js/153.60c4018e.js"><link rel="prefetch" href="/assets/js/154.d8044b29.js"><link rel="prefetch" href="/assets/js/16.daaa6b7e.js"><link rel="prefetch" href="/assets/js/17.5fa93d15.js"><link rel="prefetch" href="/assets/js/18.5a2a5a8e.js"><link rel="prefetch" href="/assets/js/19.d4cc6828.js"><link rel="prefetch" href="/assets/js/2.c107d922.js"><link rel="prefetch" href="/assets/js/20.f3aed24e.js"><link rel="prefetch" href="/assets/js/21.602e65dc.js"><link rel="prefetch" href="/assets/js/22.7f1ef34d.js"><link rel="prefetch" href="/assets/js/23.dd96e288.js"><link rel="prefetch" href="/assets/js/24.f0393f01.js"><link rel="prefetch" href="/assets/js/25.b3eaf42e.js"><link rel="prefetch" href="/assets/js/26.d11c3e2f.js"><link rel="prefetch" href="/assets/js/27.874eb632.js"><link rel="prefetch" href="/assets/js/28.9d8180e2.js"><link rel="prefetch" href="/assets/js/29.19e670ae.js"><link rel="prefetch" href="/assets/js/3.dcdecd51.js"><link rel="prefetch" href="/assets/js/30.05dd749c.js"><link rel="prefetch" href="/assets/js/31.ba54249e.js"><link rel="prefetch" href="/assets/js/32.a781042e.js"><link rel="prefetch" href="/assets/js/33.f10ca4c8.js"><link rel="prefetch" href="/assets/js/34.c46037b2.js"><link rel="prefetch" href="/assets/js/35.cd1d35ee.js"><link rel="prefetch" href="/assets/js/36.355a3162.js"><link rel="prefetch" href="/assets/js/37.1f45bb31.js"><link rel="prefetch" href="/assets/js/38.b143ec86.js"><link rel="prefetch" href="/assets/js/39.eeea86dc.js"><link rel="prefetch" href="/assets/js/4.cf9a5ee6.js"><link rel="prefetch" href="/assets/js/40.e3c4ecee.js"><link rel="prefetch" href="/assets/js/41.53454ef8.js"><link rel="prefetch" href="/assets/js/42.7bb7b1cc.js"><link rel="prefetch" href="/assets/js/43.178062e3.js"><link rel="prefetch" href="/assets/js/44.3962ed86.js"><link rel="prefetch" href="/assets/js/45.c3196a88.js"><link rel="prefetch" href="/assets/js/46.24affaf5.js"><link rel="prefetch" href="/assets/js/47.6ae747ba.js"><link rel="prefetch" href="/assets/js/48.16b7b683.js"><link rel="prefetch" href="/assets/js/49.aaf4cf5c.js"><link rel="prefetch" href="/assets/js/5.6758d475.js"><link rel="prefetch" href="/assets/js/50.dec004fc.js"><link rel="prefetch" href="/assets/js/51.13c60055.js"><link rel="prefetch" href="/assets/js/52.9df98683.js"><link rel="prefetch" href="/assets/js/53.5621439f.js"><link rel="prefetch" href="/assets/js/54.82938492.js"><link rel="prefetch" href="/assets/js/55.88368350.js"><link rel="prefetch" href="/assets/js/56.9454cb35.js"><link rel="prefetch" href="/assets/js/57.c22a39d6.js"><link rel="prefetch" href="/assets/js/58.dbf5d826.js"><link rel="prefetch" href="/assets/js/59.0eafc181.js"><link rel="prefetch" href="/assets/js/6.6cd77d2f.js"><link rel="prefetch" href="/assets/js/60.647bf7cb.js"><link rel="prefetch" href="/assets/js/61.4f87d8af.js"><link rel="prefetch" href="/assets/js/62.8836d886.js"><link rel="prefetch" href="/assets/js/63.27177f22.js"><link rel="prefetch" href="/assets/js/64.0a5e943f.js"><link rel="prefetch" href="/assets/js/65.7ce3ee50.js"><link rel="prefetch" href="/assets/js/66.85e8a286.js"><link rel="prefetch" href="/assets/js/67.da6aec92.js"><link rel="prefetch" href="/assets/js/68.83e971cb.js"><link rel="prefetch" href="/assets/js/69.0edbe74d.js"><link rel="prefetch" href="/assets/js/7.6bcf3745.js"><link rel="prefetch" href="/assets/js/70.35469e8c.js"><link rel="prefetch" href="/assets/js/71.54e87c3a.js"><link rel="prefetch" href="/assets/js/72.0975e4c9.js"><link rel="prefetch" href="/assets/js/73.2ec68323.js"><link rel="prefetch" href="/assets/js/75.3be14426.js"><link rel="prefetch" href="/assets/js/76.bd32ba3e.js"><link rel="prefetch" href="/assets/js/77.b52bb0c4.js"><link rel="prefetch" href="/assets/js/78.3a77b2d8.js"><link rel="prefetch" href="/assets/js/79.c2747e2d.js"><link rel="prefetch" href="/assets/js/8.f71652a1.js"><link rel="prefetch" href="/assets/js/80.4a107658.js"><link rel="prefetch" href="/assets/js/81.75308548.js"><link rel="prefetch" href="/assets/js/82.9383893b.js"><link rel="prefetch" href="/assets/js/83.3b11109d.js"><link rel="prefetch" href="/assets/js/84.6a005d10.js"><link rel="prefetch" href="/assets/js/85.6cea521f.js"><link rel="prefetch" href="/assets/js/86.fa853074.js"><link rel="prefetch" href="/assets/js/87.5d110306.js"><link rel="prefetch" href="/assets/js/88.34eb170e.js"><link rel="prefetch" href="/assets/js/89.65b23b0d.js"><link rel="prefetch" href="/assets/js/9.207749d9.js"><link rel="prefetch" href="/assets/js/90.9793b902.js"><link rel="prefetch" href="/assets/js/91.aab54e09.js"><link rel="prefetch" href="/assets/js/92.db4b3190.js"><link rel="prefetch" href="/assets/js/93.12604934.js"><link rel="prefetch" href="/assets/js/94.49b2a19d.js"><link rel="prefetch" href="/assets/js/95.8f5b4b26.js"><link rel="prefetch" href="/assets/js/96.b9653b96.js"><link rel="prefetch" href="/assets/js/97.436b94b7.js"><link rel="prefetch" href="/assets/js/98.aa36e199.js"><link rel="prefetch" href="/assets/js/99.5ea4f990.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8179f028.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Enqueue Zero</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/soasme/enqueuezero" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"> <a href="https://github.com/soasme/enqueuezero" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <!----> </div> <div class="page"> <div class="content"><h1 id="create-a-kubernetes-cluster-on-digitalocean"><a href="#create-a-kubernetes-cluster-on-digitalocean" class="header-anchor">#</a> Create a Kubernetes Cluster on DigitalOcean</h1> <p>In this chapter, we'll build a Kubernetes cluster on DigitalOcean.</p> <h2 id="why-use-digitalocean"><a href="#why-use-digitalocean" class="header-anchor">#</a> Why Use DigitalOcean</h2> <p>Pricing for DigitalOcean Kubernetes is based only on the underlying resources that you use (Droplets, Block Storage, and Load Balancers). Each Kubernetes cluster now starts with two Droplets of your choice, with the same simple pricing available today for Droplets.</p> <h2 id="create-cluster"><a href="#create-cluster" class="header-anchor">#</a> Create Cluster</h2> <h3 id="preparation"><a href="#preparation" class="header-anchor">#</a> Preparation</h3> <p>Install <code>terraform</code>. For macOS users, you can install terraform via Homebrew.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ brew <span class="token function">install</span> terraform
+</code></pre></div><h3 id="setup-provider"><a href="#setup-provider" class="header-anchor">#</a> Setup Provider</h3> <p>Create a file <code>deploy/digitalocean/main.tf</code></p> <div class="language- extra-class"><pre class="language-text"><code>variable &quot;do_token&quot; {}
+
+provider &quot;digitalocean&quot; {
+  token = &quot;${var.do_token}&quot;
+}
+</code></pre></div><p>Go to DigitalOcean dashboard and check &quot;API&quot;. <a href="https://cloud.digitalocean.com/account/api/tokens" target="_blank" rel="noopener noreferrer">https://cloud.digitalocean.com/account/api/tokens<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>
+If you haven't created a personal access token before, generate a new token.</p> <p>Copy the new generated token and save it to <code>deploy/digitalocean/terraform.tfvars</code>.</p> <div class="language- extra-class"><pre class="language-text"><code>do_token = &quot;logxywonfrzplzygbnbvxaxgxsuxltfncfxkhsgzqmwlhicnif&quot;
+</code></pre></div><div class="warning custom-block"><p class="custom-block-title">WARNING</p> <p>Don't commit <code>deploy/digitalocean/terraform.tfvars</code> to git repository.</p></div> <h3 id="create-a-kubernetes-cluster"><a href="#create-a-kubernetes-cluster" class="header-anchor">#</a> Create a Kubernetes Cluster</h3> <p>Append a <code>digitalocean_kubernetes_cluster</code> resource to <code>deploy/digitalocean/main.tf</code>.</p> <div class="language- extra-class"><pre class="language-text"><code>variable &quot;cluster-name&quot; {}
+variable &quot;cluster-region&quot; {}
+variable &quot;cluster-version&quot; {}
+variable &quot;cluster-node-pool-name&quot; {}
+variable &quot;cluster-node-pool-size&quot; {}
+variable &quot;cluster-node-pool-node-count&quot; {}
+
+resource &quot;digitalocean_kubernetes_cluster&quot; &quot;cluster&quot; {
+  name    = &quot;${var.cluster-name}&quot;
+  region  = &quot;${var.cluster-region}&quot;
+  version = &quot;${var.cluster-version}&quot;
+  tags = [&quot;${var.cluster-name}&quot;]
+
+  node_pool {
+    name       = &quot;${var.cluster-node-pool-name}&quot;
+    size       = &quot;${var.cluster-node-pool-size}&quot;
+    node_count = &quot;${var.cluster-node-pool-node-count}&quot;
+  }
+}
+</code></pre></div><p>Append parameters to <code>deploy/digitalocean/terraform.tfvars</code>.</p> <div class="language- extra-class"><pre class="language-text"><code>cluster-name = &quot;tomato-coffee&quot;
+cluster-region = &quot;sfo2&quot;
+cluster-version = &quot;1.13.1-do.2&quot;
+cluster-node-pool-name = &quot;tomato-coffee-worker-pool&quot;
+cluster-node-pool-size = &quot;s-1vcpu-2gb&quot;
+cluster-node-pool-node-count = 3
+</code></pre></div><p>Apply the change.</p> <div class="language- extra-class"><pre class="language-text"><code>$ terraform apply -auto-approve
+digitalocean_kubernetes_cluster.cluster: Creating...
+  cluster_subnet:         &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  created_at:             &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  endpoint:               &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  ipv4_address:           &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  kube_config.#:          &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  name:                   &quot;&quot; =&gt; &quot;tomato-coffee&quot;
+
+... (truncated)
+
+  digitalocean_kubernetes_cluster.cluster: Creation complete after 5m23s (ID: 922b3b36-7083-4619-af0c-04a6c16d6219)
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+</code></pre></div><p>Note that such config will add $15 to your bill per month.</p> <h3 id="setup-kubernetes-provider"><a href="#setup-kubernetes-provider" class="header-anchor">#</a> Setup Kubernetes Provider</h3> <p>Append the kubernetes provider to <code>deploy/digitalocean/main.tf</code> by using the certs generated from previous step.</p> <div class="language- extra-class"><pre class="language-text"><code>provider &quot;kubernetes&quot; {
+  host = &quot;${digitalocean_kubernetes_cluster.cluster.endpoint}&quot;
+
+  client_certificate = &quot;${base64decode(digitalocean_kubernetes_cluster.cluster.kube_config.0.client_certificate)}&quot;
+  client_key = &quot;${base64decode(digitalocean_kubernetes_cluster.cluster.kube_config.0.client_key)}&quot;
+  cluster_ca_certificate = &quot;${base64decode(digitalocean_kubernetes_cluster.cluster.kube_config.0.cluster_ca_certificate)}&quot;
+}
+</code></pre></div><h3 id="create-a-namespace"><a href="#create-a-namespace" class="header-anchor">#</a> Create a Namespace</h3> <div class="language- extra-class"><pre class="language-text"><code>resource &quot;kubernetes_namespace&quot; &quot;prod&quot; {
+  metadata {
+    name = &quot;${var.cluster-name}&quot;
+    labels {
+      env = &quot;prod&quot;
+    }
+  }
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>$ terraform apply -auto-approve
+digitalocean_kubernetes_cluster.cluster: Refreshing state... (ID: 922b3b36-7083-4619-af0c-04a6c16d6219)
+kubernetes_namespace.prod: Creating...
+  metadata.#:                  &quot;&quot; =&gt; &quot;1&quot;
+  metadata.0.generation:       &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  metadata.0.labels.%:         &quot;&quot; =&gt; &quot;1&quot;
+  metadata.0.labels.env:       &quot;&quot; =&gt; &quot;prod&quot;
+  metadata.0.name:             &quot;&quot; =&gt; &quot;tomato-coffee&quot;
+  metadata.0.resource_version: &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  metadata.0.self_link:        &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  metadata.0.uid:              &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+kubernetes_namespace.prod: Creation complete after 1s (ID: tomato-coffee)
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+</code></pre></div><h3 id="export-kubeconfig"><a href="#export-kubeconfig" class="header-anchor">#</a> Export Kubeconfig</h3> <p>Add a local_file resource:</p> <div class="language- extra-class"><pre class="language-text"><code>resource &quot;local_file&quot; &quot;kubeconfig&quot; {
+  content = &quot;${digitalocean_kubernetes_cluster.cluster.kube_config.0.raw_config}&quot;
+  filename = &quot;${path.module}/.kubeconfig&quot;
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>kubectl --kubeconfig .kubeconfig get nodes
+NAME                       STATUS     ROLES    AGE   VERSION
+xenodochial-meitner-8lq3   Ready      &lt;none&gt;   34h   v1.13.1
+xenodochial-meitner-8lq8   Ready      &lt;none&gt;   34h   v1.13.1
+xenodochial-meitner-8lu1   Ready      &lt;none&gt;   34h   v1.13.1
+</code></pre></div><h3 id="install-helm"><a href="#install-helm" class="header-anchor">#</a> Install Helm</h3> <div class="language- extra-class"><pre class="language-text"><code>$ brew install kubernetes-helm
+$ KUBECONFIG=.kubeconfig helm init --client-only
+</code></pre></div><p>If you saw the version is incompatible, try upgrading the server-side.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token assign-left variable">KUBECONFIG</span><span class="token operator">=</span>.kubeconfig helm list
+Error: incompatible versions client<span class="token punctuation">[</span>v2.12.3<span class="token punctuation">]</span> server<span class="token punctuation">[</span>v2.9.0<span class="token punctuation">]</span>
+
+$ <span class="token assign-left variable">KUBECONFIG</span><span class="token operator">=</span>.kubeconfig helm init --upgrade
+<span class="token variable">$HELM_HOME</span> has been configured at /Users/soasme/.helm.
+
+Tiller <span class="token punctuation">(</span>the Helm server-side component<span class="token punctuation">)</span> has been upgraded to the current version.
+Happy Helming<span class="token operator">!</span>
+</code></pre></div><h2 id="references"><a href="#references" class="header-anchor">#</a> References</h2> <p>Managing Kubernetes Just Got a Lot Simpler, blog.digitalocean.com, <a href="https://blog.digitalocean.com/digitalocean-releases-k8s-as-a-service/" target="_blank" rel="noopener noreferrer">https://blog.digitalocean.com/digitalocean-releases-k8s-as-a-service/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>How to Create a Personal Access Token, digitalocean.com, <a href="https://www.digitalocean.com/docs/api/create-personal-access-token/" target="_blank" rel="noopener noreferrer">https://www.digitalocean.com/docs/api/create-personal-access-token/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/soasme/enqueuezero/edit/master/hands-on-cloud-native/do-k8s.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/assets/js/app.a5c5a90d.js" defer></script><script src="/assets/js/74.13bf7e04.js" defer></script>
+  </body>
+</html>
